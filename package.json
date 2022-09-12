@@ -1,8 +1,8 @@
 {
-  "name": "@webezy-js/webezy-commons",
-  "version": "1.0.0",
+  "name": "@webezy-io/commons",
+  "version": "0.0.1",
   "description": "Webezy commons modules",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "rimraf dist && tsc -b",
     "test": "jest"
