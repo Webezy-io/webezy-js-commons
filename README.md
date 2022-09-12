@@ -48,3 +48,9 @@ wz generate --message --field-extension
 4. webezy.commons.v1.Validators.Max - Minimum value
 5. webezy.commons.v1.Validators.Max - Maximum value
 
+# Test
+
+Run test scripts with jest
+```sh
+npm test
+```
