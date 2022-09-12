@@ -1,4 +1,4 @@
-[npm](https://badgen.net/npm/v/@webezy-io/commons)
+![npm](https://img.shields.io/npm/v/@webezy-io/commons?style=plastic)
 
 # webezy-io/commons
 
