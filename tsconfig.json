@@ -16,6 +16,7 @@
         "moduleResolution": "node",
         "incremental": true,
         "declaration": true,
+        "experimentalDecorators": true,
         "newLine": "lf",
         "strict": true,
         "allowUnreachableCode": false,

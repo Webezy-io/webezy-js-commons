@@ -23,9 +23,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.loggers = exports.validators = void 0;
-const validators = __importStar(require("./validators"));
-exports.validators = validators;
-const loggers = __importStar(require("./loggers"));
-exports.loggers = loggers;
+exports.decorator = exports.winston = void 0;
+const winston = __importStar(require("./winston"));
+exports.winston = winston;
+const decorator = __importStar(require("./decorator"));
+exports.decorator = decorator;
 //# sourceMappingURL=index.js.map

@@ -1,3 +1,5 @@
+[npm](https://badgen.net/npm/v/@webezy-io/commons)
+
 # webezy-io/commons
 
 This is commons modules to be used with [Webezy.io](https://www.webezy.io) project written in TS / JS

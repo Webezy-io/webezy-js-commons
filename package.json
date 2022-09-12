@@ -14,7 +14,8 @@
   "author": "Amit Shmulevitch",
   "license": "ISC",
   "dependencies": {
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "winston": "^3.8.2"
   },
   "devDependencies": {
     "@types/jest": "^29.0.1",

@@ -1,5 +1,7 @@
-import * as validators from './validators/index';
+import * as validators from './validators';
+import * as loggers from './loggers';
  
 export {
-    validators
+    validators,
+    loggers
 }

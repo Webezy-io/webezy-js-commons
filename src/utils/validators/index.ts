@@ -31,9 +31,20 @@ function _min_validator(value:number, min:number) {
     }
 
 }
+
+function _regex_validator(value:string, regex:string) {
+    const re = new RegExp(regex);
+    if (!re.test(value)) {
+        throw new Error(`\x1b[31m[webezy.commons.v1.Validators.RegEx] Validators Exception\n- ${value} is not following the RegEx value ${regex}\x1b[0m`);
+    }
+
+}
+
+
 export {
     _max_length_validator,
     _email_validator,
     _max_validator,
-    _min_validator
+    _min_validator,
+    _regex_validator
 }
