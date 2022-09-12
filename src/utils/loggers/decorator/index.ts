@@ -19,13 +19,22 @@ export function Loggable(logger:winston.Logger = defaultLogger.default) {
             }
 
             descriptor.value = function(...args: any[]) {
-                logger.debug(`[${target.name}][${propertyName}] Entering`);
-                logger.debug(args)
+                logger.info(`[${target.name}][${propertyName}] Entering`);
+                logger.info(`[${target.name}][${propertyName}] Request params: ${JSON.stringify(args[0])}`)
+
+                if(args.length > 1){
+                    logger.info(`[${target.name}][${propertyName}] Request metadata: ${JSON.stringify(args[1])}`)
+                }
+
                 const now = Date.now();
                 const result = originalMethod.apply(this, args);
 
                 const exitLog = () => {
-                    logger.debug(`[${target.name}][${propertyName}] Exiting ${Date.now() - now}ms`);
+                    logger.info(`[${target.name}][${propertyName}] Exiting ${Date.now() - now}ms`);
+                };
+
+                const errorLog = (e:any) => {
+                    logger.error(`[${target.name}][${propertyName}] Error ${e}`);
                 };
 
                 // work around to support async functions.
@@ -36,7 +45,10 @@ export function Loggable(logger:winston.Logger = defaultLogger.default) {
                     // but we need to catch the error otherwise we will get an unhandled error.
                     // notice we return the original result not the promise with the logging call.
                     if (typeof promise.catch === "function") {
-                        promise.catch((e: any) => e);
+                        promise.catch((e: any) => {
+                            errorLog(e)
+                            return e
+                        });
                     }
                 } else {
                     exitLog();

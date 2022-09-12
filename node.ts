@@ -5,8 +5,8 @@ const logger = utils.loggers.winston.default
 @utils.loggers.decorator.Loggable(logger)
 export class test {
 
-    public hello(string:string) {
-        return string
+    public async hello(string:string) {
+        throw new Error("error");
     }
 
 }
@@ -14,4 +14,8 @@ export class test {
 
 let t = new test()
 
-t.hello("hello")
+t.hello("hello").then(res => {
+    console.log(res)
+}).catch(err => {
+    console.log(err)
+})

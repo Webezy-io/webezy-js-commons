@@ -38,17 +38,26 @@ function Loggable(logger = defaultLogger.default) {
                 continue;
             }
             descriptor.value = function (...args) {
-                logger.debug(`[${target.name}][${propertyName}] Entering`);
-                logger.debug(args);
+                logger.info(`[${target.name}][${propertyName}] Entering`);
+                logger.info(`[${target.name}][${propertyName}] Request params: ${JSON.stringify(args[0])}`);
+                if (args.length > 1) {
+                    logger.info(`[${target.name}][${propertyName}] Request metadata: ${JSON.stringify(args[1])}`);
+                }
                 const now = Date.now();
                 const result = originalMethod.apply(this, args);
                 const exitLog = () => {
-                    logger.debug(`[${target.name}][${propertyName}] Exiting ${Date.now() - now}ms`);
+                    logger.info(`[${target.name}][${propertyName}] Exiting ${Date.now() - now}ms`);
+                };
+                const errorLog = (e) => {
+                    logger.error(`[${target.name}][${propertyName}] Error ${e}`);
                 };
                 if (typeof result === "object" && typeof result.then === "function") {
                     const promise = result.then(exitLog);
                     if (typeof promise.catch === "function") {
-                        promise.catch((e) => e);
+                        promise.catch((e) => {
+                            errorLog(e);
+                            return e;
+                        });
                     }
                 }
                 else {

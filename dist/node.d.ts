@@ -1,3 +1,3 @@
 export declare class test {
-    hello(string: string): string;
+    hello(string: string): Promise<void>;
 }

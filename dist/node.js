@@ -10,8 +10,8 @@ exports.test = void 0;
 const index_1 = require("./index");
 const logger = index_1.utils.loggers.winston.default;
 let test = class test {
-    hello(string) {
-        return string;
+    async hello(string) {
+        throw new Error("error");
     }
 };
 test = __decorate([
@@ -19,5 +19,9 @@ test = __decorate([
 ], test);
 exports.test = test;
 let t = new test();
-t.hello("hello");
+t.hello("hello").then(res => {
+    console.log(res);
+}).catch(err => {
+    console.log(err);
+});
 //# sourceMappingURL=node.js.map
