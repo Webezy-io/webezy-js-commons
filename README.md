@@ -1,4 +1,5 @@
 ![npm](https://img.shields.io/npm/v/@webezy-io/commons?style=plastic)
+![ci](https://app.travis-ci.com/Webezy-io/webezy-js-commons.svg?branch=main)
 
 # webezy-io/commons
 
