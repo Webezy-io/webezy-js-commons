@@ -1,6 +1,6 @@
 {
   "name": "@webezy-io/commons",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "Webezy commons modules",
   "main": "dist/index.js",
   "scripts": {
